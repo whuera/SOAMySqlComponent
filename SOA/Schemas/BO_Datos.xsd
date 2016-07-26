@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:saap="http://www.example.org"
+            targetNamespace="http://www.example.org" elementFormDefault="qualified">
+  <xsd:element name="Request">
+    <xsd:annotation>
+      <xsd:documentation>A sample element</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="idRegistro" type="xsd:int"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="Response">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="return" type="saap:GuestRecord" minOccurs="0" maxOccurs="unbounded"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:complexType name="statusRecord">
+    <xsd:sequence>
+      <xsd:element name="codError" type="xsd:string"/>
+      <xsd:element name="descError" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="GuestRecord">
+    <xsd:sequence>
+      <xsd:element name="idRegister" type="xsd:int"/>
+      <xsd:element name="firstName" type="xsd:string"/>
+      <xsd:element name="lstName" type="xsd:string"/>
+      <xsd:element name="mail" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="statusRecordElement">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="status" type="saap:statusRecord"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

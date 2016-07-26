@@ -1,0 +1,59 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<xsd:schema xmlns:ns0="http://client/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://client/">
+    <xsd:complexType name="Exception">
+        <xsd:sequence>
+            <xsd:element name="message" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="getCustomers"/>
+    <xsd:complexType name="getCustomersResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:customer" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="SQLException">
+        <xsd:sequence>
+            <xsd:element name="SQLState" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="errorCode" type="xsd:int"/>
+            <xsd:element name="message" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="nextException" type="xsd:anySimpleType" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="setNewCustomer">
+        <xsd:sequence>
+            <xsd:element name="arg0" type="ns0:customer" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="setNewCustomerResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:int"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="customer">
+        <xsd:complexContent>
+            <xsd:extension base="ns0:entidad">
+                <xsd:sequence>
+                    <xsd:element name="ruc" type="xsd:string" minOccurs="0"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="entidad">
+        <xsd:sequence>
+            <xsd:element name="address" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="country" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="email" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="firstName" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="id" type="xsd:int"/>
+            <xsd:element name="lastName" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="phone" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="Exception" type="ns0:Exception"/>
+    <xsd:element name="getCustomers" type="ns0:getCustomers"/>
+    <xsd:element name="getCustomersResponse" type="ns0:getCustomersResponse"/>
+    <xsd:element name="SQLException" type="ns0:SQLException"/>
+    <xsd:element name="setNewCustomer" type="ns0:setNewCustomer"/>
+    <xsd:element name="setNewCustomerResponse" type="ns0:setNewCustomerResponse"/>
+</xsd:schema>
+<!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is JAX-WS RI 2.2.11-b150616.1732 svn-revision#a247ba216861f2c0baac9a3657c5690bce0c744d. -->
